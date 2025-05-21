@@ -1,0 +1,178 @@
+{% extends 'base.html' %}
+
+{% block title %}Health & Fitness - AlmostMe{% endblock %}
+
+{% block content %}
+<!-- Fitness Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Health & <span class="highlight">Fitness</span></h1>
+        <p>Achieve your fitness goals with personalized tracking</p>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- BMI Calculator Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 animated-element">
+                <div class="d-flex justify-content-center mb-4">
+                    <div class="fitness-icon">
+                        <i class="fas fa-running"></i>
+                    </div>
+                    <div class="fitness-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <div class="fitness-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                </div>
+                
+                <h2 class="section-title text-start">BMI <span class="highlight">Calculator</span></h2>
+                <p>Body Mass Index (BMI) is a measure of body fat based on height and weight. Use our calculator to find out your BMI and what it means for your health.</p>
+                
+                <div class="progress-circle mt-4">
+                    <svg viewBox="0 0 100 100">
+                        <circle class="progress-background" cx="50" cy="50" r="45"></circle>
+                        <circle class="progress-bar" cx="50" cy="50" r="45"></circle>
+                    </svg>
+                    <div class="progress-text">BMI</div>
+                </div>
+            </div>
+            
+            <div class="col-lg-6 animated-element">
+                <div class="form-container">
+                    <h3 class="mb-4">Calculate Your BMI</h3>
+                    
+                    <form id="bmi-form">
+                        <div class="mb-3">
+                            <label for="height" class="form-label">Height (cm)</label>
+                            <input type="number" class="form-control" id="height" placeholder="e.g., 175" required>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="weight" class="form-label">Weight (kg)</label>
+                            <input type="number" class="form-control" id="weight" placeholder="e.g., 70" required>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Calculate BMI</button>
+                    </form>
+                    
+                    <div id="bmi-result" class="mt-4" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Fitness Tips Section -->
+<section class="section section-gradient-2">
+    <div class="container">
+        <h2 class="section-title">Fitness <span class="highlight">Tips</span></h2>
+        <p class="section-subtitle">Simple ways to improve your fitness</p>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-walking"></i>
+                    </div>
+                    <h3 class="card-title">Daily Movement</h3>
+                    <p>Aim for at least 30 minutes of moderate physical activity every day.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="card-title">Strength Training</h3>
+                    <p>Include strength training exercises at least twice a week to build muscle.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-bed"></i>
+                    </div>
+                    <h3 class="card-title">Proper Rest</h3>
+                    <p>Get 7-9 hours of quality sleep to allow your body to recover and grow.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3 class="card-title">Cardio Health</h3>
+                    <p>Regular cardiovascular exercise improves heart health and endurance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Workout Plans Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <h2 class="section-title">Workout <span class="highlight">Plans</span></h2>
+        <p class="section-subtitle">Choose a plan that fits your goals</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-weight"></i>
+                    </div>
+                    <h3 class="card-title">Weight Loss</h3>
+                    <p>A combination of cardio and strength training to help you burn fat and build lean muscle.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i> 3-4 days of cardio</li>
+                        <li><i class="fas fa-check text-success me-2"></i> 2-3 days of strength training</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Focus on full-body workouts</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">View Plan</button>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-dumbbell"></i>
+                    </div>
+                    <h3 class="card-title">Muscle Gain</h3>
+                    <p>Heavy resistance training with proper nutrition to maximize muscle growth and strength.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i> 4-5 days of strength training</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Split routines for different muscle groups</li>
+                        <li><i class="fas fa-check text-success me-2"></i> Progressive overload principle</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">View Plan</button>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="card-title">General Fitness</h3>
+                    <p>A balanced approach to improve overall health, endurance, and functional fitness.</p>
+                    <ul class="list-unstyled mt-3">
+                        <li><i class="fas fa-check text-success me-2"></i> 2-3 days of cardio</li>
+                        <li><i class="fas fa-check text-success me-2"></i> 2-3 days of strength training</li>
+                        <li><i class="fas fa-check text-success me-2"></i> 1-2 days of flexibility/mobility work</li>
+                    </ul>
+                    <button class="btn btn-primary mt-3">View Plan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
