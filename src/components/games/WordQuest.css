@@ -1,0 +1,380 @@
+.word-quest-container {
+  position: absolute;
+  top: 80px; /* Increased top offset to put game UI further below navbar */
+  width: 100%;
+  height: calc(90vh - 80px); /* Adjust height accordingly */
+  background: linear-gradient(135deg, #bfd917 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(102, 126, 234, 0.5);
+  overflow: hidden;
+}
+
+.game-menu,
+.level-complete {
+  position: absolute;
+  text-align: center;
+  color: white;
+}
+
+.difficulty-select {
+  margin: 20px 0;
+}
+
+.difficulty-select label {
+  font-size: 1.1rem;
+  margin-right: 10px;
+}
+
+.difficulty-select select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.level-select {
+  margin: 20px 0;
+}
+
+.level-select label {
+  font-size: 1.1rem;
+  margin-right: 10px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.levels-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.level-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  background: linear-gradient(90deg, #4ecdc4, #26a69a);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.level-button:hover:not(:disabled) {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+}
+
+.level-button.active {
+  background: linear-gradient(90deg, #ff9a9e, #fecfef);
+  border-color: #ff9a9e;
+}
+
+.level-button.locked {
+  background: linear-gradient(90deg, #95a5a6, #7f8c8d);
+  border-color: #95a5a6;
+  cursor: not-allowed;
+  opacity: 0.6;
+}
+
+.level-button.locked::after {
+  content: "🔒";
+  font-size: 0.8rem;
+  position: absolute;
+  top: -5px;
+  right: -5px;
+}
+
+.start-button,
+.next-level-button {
+  background: linear-gradient(90deg, #ff9a9e, #fecfef);
+  color: #333;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 30px;
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin-top: 20px;
+}
+
+.start-button:hover,
+.next-level-button:hover {
+  background: linear-gradient(90deg, #fecfef, #ff9a9e);
+}
+
+.game-ui {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px 0;
+  font-weight: 600;
+  color: white;
+  font-size: 1.1rem;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.game-area {
+  display: flex;
+  flex-grow: 1;
+  width: 100%;
+  padding: 20px;
+}
+
+.word-grid {
+  display: grid;
+  gap: 3px;
+  flex: 1;
+  max-width: 60%;
+  aspect-ratio: 1;
+  background: #2c3e50;
+  border-radius: 12px;
+  padding: 15px;
+  box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.3);
+  user-select: none;
+}
+
+.grid-cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #ffffff, #e6e6e6);
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #2c3e50;
+  transition: all 0.2s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative;
+  overflow: hidden;
+}
+
+.grid-cell::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.1) 50%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.grid-cell:hover::before {
+  opacity: 1;
+}
+
+.grid-cell:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.grid-cell.selected {
+  background: linear-gradient(145deg, #4ecdc4, #26a69a);
+  color: white;
+  border-color: #26a69a;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(78, 205, 196, 0.4);
+  z-index: 10;
+}
+
+.grid-cell.selected::before {
+  background: linear-gradient(
+    45deg,
+    transparent 30%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 70%
+  );
+  opacity: 1;
+}
+
+.words-list {
+  margin-left: 20px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 30%;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.words-list h3 {
+  margin-bottom: 15px;
+  color: #2c3e50;
+  font-size: 1.3rem;
+  text-align: center;
+}
+
+.words-list ul {
+  list-style: none;
+  padding: 0;
+}
+
+.words-list li {
+  padding: 8px 12px;
+  margin: 5px 0;
+  color: #666;
+  background: #f8f9fa;
+  border-radius: 6px;
+  border-left: 4px solid #ddd;
+  transition: all 0.2s ease;
+}
+
+.words-list li.found {
+  background: linear-gradient(90deg, #4ecdc4, #26a69a);
+  color: white;
+  border-left-color: #26a69a;
+  text-decoration: none;
+  font-weight: bold;
+  transform: translateX(5px);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .word-quest-container {
+    top: 70px;
+    height: calc(90vh - 70px);
+    padding: 10px;
+  }
+
+  .game-ui {
+    padding: 8px 0;
+    font-size: 1rem;
+  }
+
+  .game-area {
+    padding: 15px;
+    flex-direction: column;
+  }
+
+  .word-grid {
+    max-width: 100%;
+    padding: 10px;
+    gap: 2px;
+  }
+
+  .grid-cell {
+    font-size: 1rem;
+  }
+
+  .words-list {
+    margin-left: 0;
+    margin-top: 15px;
+    max-width: 100%;
+    padding: 15px;
+  }
+
+  .words-list h3 {
+    font-size: 1.1rem;
+  }
+
+  .words-list li {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .difficulty-select {
+    margin: 15px 0;
+  }
+
+  .difficulty-select label {
+    font-size: 1rem;
+  }
+
+  .difficulty-select select {
+    padding: 6px 10px;
+    font-size: 0.9rem;
+  }
+
+  .start-button,
+  .next-level-button {
+    padding: 10px 20px;
+    font-size: 1.1rem;
+    margin-top: 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .word-quest-container {
+    top: 60px;
+    height: calc(90vh - 60px);
+    padding: 5px;
+  }
+
+  .game-ui {
+    padding: 6px 0;
+    font-size: 0.9rem;
+  }
+
+  .game-area {
+    padding: 10px;
+  }
+
+  .word-grid {
+    padding: 8px;
+    gap: 1px;
+  }
+
+  .grid-cell {
+    font-size: 0.9rem;
+    border-radius: 6px;
+  }
+
+  .words-list {
+    padding: 12px;
+  }
+
+  .words-list h3 {
+    font-size: 1rem;
+  }
+
+  .words-list li {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+
+  .difficulty-select {
+    margin: 10px 0;
+  }
+
+  .difficulty-select label {
+    font-size: 0.9rem;
+  }
+
+  .difficulty-select select {
+    padding: 5px 8px;
+    font-size: 0.8rem;
+  }
+
+  .start-button,
+  .next-level-button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+}

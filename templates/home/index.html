@@ -1,0 +1,111 @@
+{% extends 'base.html' %}
+
+{% block title %}AlmostMe - Not just an app, it's Almost You{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Discover Your <span class="highlight">True Self</span></h1>
+        <p>Not just an app, it's Almost You.</p>
+        <div class="hero-buttons">
+            <a href="{% url 'games' %}" class="btn btn-primary">Play Games</a>
+            <a href="{% url 'diet' %}" class="btn btn-outline-light">Diet & Nutrition</a>
+            <a href="{% url 'fitness' %}" class="btn btn-outline-light">Health & Fitness</a>
+            <a href="{% url 'emotion' %}" class="btn btn-outline-light">Emotion Detection</a>
+        </div>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <h2 class="section-title">Our <span class="highlight">Features</span></h2>
+        <p class="section-subtitle">Discover all the ways AlmostMe can help you live better</p>
+        
+        <div class="row g-4">
+            <!-- Games Feature -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-gamepad"></i>
+                    </div>
+                    <h3 class="card-title">Mind Games</h3>
+                    <p>Train your brain with fun and engaging games designed to improve cognitive function.</p>
+                    <a href="{% url 'games' %}" class="btn btn-primary mt-3">Play Now</a>
+                </div>
+            </div>
+            
+            <!-- Diet Feature -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <h3 class="card-title">Diet & Nutrition</h3>
+                    <p>Get personalized meal recommendations based on your dietary preferences and goals.</p>
+                    <a href="{% url 'diet' %}" class="btn btn-primary mt-3">Explore Diet</a>
+                </div>
+            </div>
+            
+            <!-- Fitness Feature -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-heartbeat"></i>
+                    </div>
+                    <h3 class="card-title">Health & Fitness</h3>
+                    <p>Track your fitness progress and get insights to improve your overall health.</p>
+                    <a href="{% url 'fitness' %}" class="btn btn-primary mt-3">Get Fit</a>
+                </div>
+            </div>
+            
+            <!-- Emotion Feature -->
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="card-title">Emotion Detection</h3>
+                    <p>Understand your emotional state and get personalized recommendations.</p>
+                    <a href="{% url 'emotion' %}" class="btn btn-primary mt-3">Analyze Mood</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section -->
+<section class="section section-gradient-2">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-6 animated-element">
+                <h2 class="section-title text-start">About <span class="highlight">AlmostMe</span></h2>
+                <p>AlmostMe is a comprehensive wellness platform designed to help you understand and improve every aspect of your life. From mental exercises to physical health tracking, emotional analysis to dietary guidance, we've got you covered.</p>
+                <p>Our mission is to provide you with the tools and insights you need to become the best version of yourself - to become <span class="highlight">Almost You</span>.</p>
+                <a href="{% url 'contact' %}" class="btn btn-primary mt-3">Contact Us</a>
+            </div>
+            <div class="col-lg-6 animated-element">
+                <div class="d-flex justify-content-center">
+                    <div class="emoji-container">
+                        <div class="emoji">😊</div>
+                        <div class="emoji">💪</div>
+                        <div class="emoji">🧠</div>
+                        <div class="emoji">🥗</div>
+                    </div>
+                </div>
+                <div class="waveform mt-4">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

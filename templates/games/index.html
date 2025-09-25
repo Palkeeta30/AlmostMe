@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %}Mind Games - AlmostMe{% endblock %}
+
+{% block content %}
+<!-- Games Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Mind <span class="highlight">Games</span></h1>
+        <p>Train your brain with fun and engaging games</p>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Games List Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <h2 class="section-title">Our <span class="highlight">Games</span></h2>
+        <p class="section-subtitle">Challenge yourself with these brain-training games</p>
+        
+        <div class="row g-4">
+            <!-- Memory Game -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card game-card animated-element">
+                    <div class="game-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="card-title">Memory Match</h3>
+                    <p>Test and improve your memory by matching pairs of cards.</p>
+                    <a href="{% url 'memory_game' %}" class="btn btn-primary mt-3">Play Now</a>
+                </div>
+            </div>
+            
+            <!-- Puzzle Game -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card game-card animated-element">
+                    <div class="game-icon">
+                        <i class="fas fa-puzzle-piece"></i>
+                    </div>
+                    <h3 class="card-title">Puzzle Master</h3>
+                    <p>Challenge your problem-solving skills with our collection of puzzles.</p>
+                    <a href="#" class="btn btn-primary mt-3">Coming Soon</a>
+                </div>
+            </div>
+            
+            <!-- Reflex Game -->
+            <div class="col-md-6 col-lg-4">
+                <div class="card game-card animated-element">
+                    <div class="game-icon">
+                        <i class="fas fa-bolt"></i>
+                    </div>
+                    <h3 class="card-title">Reflex Challenge</h3>
+                    <p>Test and improve your reaction time with fast-paced challenges.</p>
+                    <a href="#" class="btn btn-primary mt-3">Coming Soon</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="section section-gradient-2">
+    <div class="container">
+        <h2 class="section-title">Benefits of <span class="highlight">Brain Games</span></h2>
+        <p class="section-subtitle">Why playing games is good for your mental health</p>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <h3 class="card-title">Cognitive Function</h3>
+                    <p>Improve memory, attention, and problem-solving skills.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="card-title">Reaction Time</h3>
+                    <p>Enhance your processing speed and reaction time.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-lightbulb"></i>
+                    </div>
+                    <h3 class="card-title">Creativity</h3>
+                    <p>Stimulate creative thinking and problem-solving abilities.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-smile"></i>
+                    </div>
+                    <h3 class="card-title">Stress Relief</h3>
+                    <p>Reduce stress and anxiety through engaging gameplay.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
