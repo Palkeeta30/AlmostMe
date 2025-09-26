@@ -1,7 +1,6 @@
 # Consolidated TODO List
 
 This file consolidates all previous TODO files for better organization and tracking.
-
 ## CSRF Fix for Fitness Page
 
 ### Changes Made
