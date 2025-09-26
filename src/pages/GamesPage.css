@@ -1,0 +1,169 @@
+.games-page {
+  padding: 20px;
+  text-align: center;
+  color: #333;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+  .games-page {
+    padding: 15px;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+  }
+
+  .game-card {
+    padding: 18px;
+  }
+
+  .game-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .back-button {
+    top: 15px;
+    left: 15px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .games-page {
+    padding: 12px;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 16px;
+  }
+
+  .game-card {
+    padding: 16px;
+  }
+
+  .game-card h3 {
+    font-size: 1.3rem;
+  }
+
+  .back-button {
+    top: 12px;
+    left: 12px;
+    padding: 7px 14px;
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .games-page {
+    padding: 10px;
+  }
+
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px;
+  }
+
+  .game-card {
+    padding: 14px;
+  }
+
+  .game-card h3 {
+    font-size: 1.2rem;
+  }
+
+  .back-button {
+    top: 10px;
+    left: 10px;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+  }
+}
+
+.games-page h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #8e44ad;
+}
+
+.games-page p {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+  opacity: 0.8;
+}
+
+.games-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 12px;
+  max-width: 100%;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
+
+@media (max-width: 768px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .games-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+}
+
+.game-card {
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  border-radius: 12px;
+  padding: 20px;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.game-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.game-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.game-card p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.games-container {
+  position: relative;
+  width: 100%;
+  height: auto;
+  min-height: 100vh;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: #8e44ad;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-size: 1rem;
+  z-index: 10;
+  transition: background 0.3s ease;
+}
+
+.back-button:hover {
+  background: #7d3c98;
+}

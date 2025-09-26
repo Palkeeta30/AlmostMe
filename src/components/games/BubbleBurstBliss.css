@@ -1,0 +1,147 @@
+/* Fix background color for the first page */
+.bubble-game-container {
+  background-color: #1a1a2e; /* Dark blue background */
+  color: white;
+  height: calc(100vh - 80px); /* Adjust height to avoid navbar overlap */
+  margin-top: 80px; /* Push down below navbar */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.game-menu,
+.game-over,
+.level-complete {
+  text-align: center;
+}
+
+.start-button,
+.next-level-button {
+  background: linear-gradient(90deg, #6f42c1, #6610f2);
+  border: none;
+  color: white;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1.1rem;
+}
+
+.game-ui {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  padding: 10px 0;
+  font-size: 1.2rem;
+}
+
+.game-area {
+  flex: 1;
+  position: relative;
+  width: 100%;
+  height: 70vh;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.bubble {
+  position: absolute;
+  border-radius: 50%;
+  background: #6f42c1;
+  opacity: 0.9;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+  cursor: pointer;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.bubble.special {
+  background: linear-gradient(45deg, #ff6ec4, #7873f5);
+}
+
+.bubble.popped {
+  transform: scale(0);
+  opacity: 0;
+}
+
+.level-complete {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #222;
+  padding: 20px 40px;
+  border-radius: 10px;
+  color: white;
+  text-align: center;
+  z-index: 10;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .bubble-game-container {
+    height: 90vh;
+    padding: 10px;
+  }
+
+  .game-ui {
+    padding: 8px 0;
+    font-size: 1.1rem;
+  }
+
+  .game-area {
+    height: 65vh;
+  }
+
+  .bubble {
+    width: 45px;
+    height: 45px;
+  }
+
+  .start-button,
+  .next-level-button {
+    padding: 8px 16px;
+    font-size: 1rem;
+    margin-top: 12px;
+  }
+
+  .level-complete {
+    padding: 15px 30px;
+  }
+}
+
+@media (max-width: 480px) {
+  .bubble-game-container {
+    height: 85vh;
+    padding: 5px;
+  }
+
+  .game-ui {
+    padding: 6px 0;
+    font-size: 1rem;
+  }
+
+  .game-area {
+    height: 60vh;
+  }
+
+  .bubble {
+    width: 40px;
+    height: 40px;
+  }
+
+  .start-button,
+  .next-level-button {
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    margin-top: 10px;
+  }
+
+  .level-complete {
+    padding: 12px 20px;
+    top: 35%;
+  }
+}

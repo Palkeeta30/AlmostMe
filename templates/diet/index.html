@@ -1,0 +1,208 @@
+{% extends 'base.html' %}
+
+{% block title %}Diet & Nutrition - AlmostMe{% endblock %}
+
+{% block content %}
+<!-- Diet Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Diet & <span class="highlight">Nutrition</span></h1>
+        <p>Optimize your nutrition with personalized meal plans</p>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Diet Form Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 animated-element">
+                <div class="food-items">
+                    <div class="food-item">
+                        <i class="fas fa-utensils"></i>
+                    </div>
+                    <div class="food-item">
+                        <i class="fas fa-carrot"></i>
+                    </div>
+                    <div class="food-item">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <div class="food-item">
+                        <i class="fas fa-glass-whiskey"></i>
+                    </div>
+                </div>
+                
+                <h2 class="section-title text-start">Personalized <span class="highlight">Nutrition</span></h2>
+                <p>Get customized meal recommendations based on your dietary preferences, health goals, and nutritional needs.</p>
+            </div>
+            
+            <div class="col-lg-6 animated-element">
+                <div class="form-container">
+                    <h3 class="mb-4">Meal Intake Form</h3>
+                    
+                    <form>
+                        <div class="mb-3">
+                            <label for="diet-preference" class="form-label">Dietary Preference</label>
+                            <div class="toggle-container">
+                                <button type="button" class="toggle-btn active" id="veg">Vegetarian</button>
+                                <button type="button" class="toggle-btn" id="non-veg">Non-Vegetarian</button>
+                                <button type="button" class="toggle-btn" id="vegan">Vegan</button>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="calories" class="form-label">Daily Calorie Target</label>
+                            <input type="range" class="form-range" id="calories" min="1200" max="3000" step="100" value="2000">
+                            <div class="d-flex justify-content-between">
+                                <span>1200</span>
+                                <span id="calorie-value">2000</span>
+                                <span>3000</span>
+                            </div>
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="allergies" class="form-label">Allergies or Restrictions</label>
+                            <input type="text" class="form-control" id="allergies" placeholder="e.g., nuts, dairy, gluten">
+                        </div>
+                        
+                        <div class="mb-3">
+                            <label for="goal" class="form-label">Nutrition Goal</label>
+                            <select class="form-select" id="goal">
+                                <option value="weight-loss">Weight Loss</option>
+                                <option value="muscle-gain">Muscle Gain</option>
+                                <option value="maintenance" selected>Maintenance</option>
+                                <option value="health">General Health</option>
+                            </select>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Generate Meal Plan</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Sample Meal Plans Section -->
+<section class="section section-gradient-2">
+    <div class="container">
+        <h2 class="section-title">Sample <span class="highlight">Meal Plans</span></h2>
+        <p class="section-subtitle">Explore these nutritious meal ideas</p>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-seedling"></i>
+                    </div>
+                    <h3 class="card-title">Vegetarian Plan</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Breakfast:</strong> Avocado toast with poached eggs</li>
+                        <li><strong>Lunch:</strong> Quinoa salad with roasted vegetables</li>
+                        <li><strong>Dinner:</strong> Lentil curry with brown rice</li>
+                        <li><strong>Snack:</strong> Greek yogurt with berries and honey</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-drumstick-bite"></i>
+                    </div>
+                    <h3 class="card-title">Non-Vegetarian Plan</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Breakfast:</strong> Scrambled eggs with turkey bacon</li>
+                        <li><strong>Lunch:</strong> Grilled chicken salad with olive oil dressing</li>
+                        <li><strong>Dinner:</strong> Baked salmon with steamed vegetables</li>
+                        <li><strong>Snack:</strong> Protein shake with banana</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="col-md-4">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3 class="card-title">Vegan Plan</h3>
+                    <ul class="list-unstyled">
+                        <li><strong>Breakfast:</strong> Overnight oats with almond milk and chia seeds</li>
+                        <li><strong>Lunch:</strong> Buddha bowl with tofu and tahini dressing</li>
+                        <li><strong>Dinner:</strong> Chickpea and vegetable stir-fry</li>
+                        <li><strong>Snack:</strong> Mixed nuts and dried fruits</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Nutrition Tips Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <h2 class="section-title">Nutrition <span class="highlight">Tips</span></h2>
+        <p class="section-subtitle">Simple ways to improve your diet</p>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-tint"></i>
+                    </div>
+                    <h3 class="card-title">Stay Hydrated</h3>
+                    <p>Drink at least 8 glasses of water daily to maintain proper hydration.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-apple-alt"></i>
+                    </div>
+                    <h3 class="card-title">Eat Whole Foods</h3>
+                    <p>Focus on whole, unprocessed foods for maximum nutritional benefits.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-balance-scale"></i>
+                    </div>
+                    <h3 class="card-title">Portion Control</h3>
+                    <p>Be mindful of portion sizes to avoid overeating and maintain balance.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-clock"></i>
+                    </div>
+                    <h3 class="card-title">Regular Meals</h3>
+                    <p>Eat at regular intervals to maintain energy levels throughout the day.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Calorie slider
+        const calorieSlider = document.getElementById('calories');
+        const calorieValue = document.getElementById('calorie-value');
+        
+        if (calorieSlider && calorieValue) {
+            calorieSlider.addEventListener('input', function() {
+                calorieValue.textContent = this.value;
+            });
+        }
+    });
+</script>
+{% endblock %}

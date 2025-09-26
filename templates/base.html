@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AlmostMe</title>
+    <link rel="stylesheet" href="/static/css/style.css" />
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'home' in request.path %}active{% endif %}"
+            href="{% url 'home' %}"
+            >Home</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'games' in request.path %}active{% endif %}"
+            href="{% url 'games' %}"
+            >Games</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'diet' in request.path %}active{% endif %}"
+            href="{% url 'diet' %}"
+            >Diet</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'fitness' in request.path %}active{% endif %}"
+            href="/fitness/"
+            >Fitness</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'emotion' in request.path %}active{% endif %}"
+            href="{% url 'emotion' %}"
+            >Emotion</a
+          >
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link {% if 'contact' in request.path %}active{% endif %}"
+            href="/contact"
+            >Contact</a
+          >
+        </li>
+      </ul>
+    </nav>
+    {% block content %} {% endblock %}
+  </body>
+</html>

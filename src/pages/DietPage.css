@@ -1,0 +1,463 @@
+/* Diet Page Styles */
+.diet-page {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+}
+
+/* Hero Section */
+.diet-hero {
+  padding: 60px 20px 40px;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  opacity: 0.9;
+  margin-bottom: 40px;
+}
+
+.gradient-text {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Food Animation */
+.food-animation {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin-top: 40px;
+}
+
+.animated-plate,
+.animated-glass,
+.animated-bowl {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animated-plate {
+  animation-delay: 0s;
+}
+
+.animated-glass {
+  animation-delay: 1s;
+}
+
+.animated-bowl {
+  animation-delay: 2s;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-20px);
+  }
+}
+
+.plate,
+.glass,
+.bowl {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+}
+
+/* Diet Preferences */
+.diet-preferences {
+  padding: 40px 20px;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.section-title {
+  font-size: 2rem;
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+}
+
+.preference-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.preference-btn {
+  background: rgba(255, 255, 255, 0.2);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  color: white;
+  padding: 15px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.preference-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+
+.preference-btn.active {
+  background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+  border-color: transparent;
+}
+
+/* Meal Planner */
+.meal-planner {
+  padding: 40px 20px;
+}
+
+.planner-layout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 30px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.meal-categories {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+.meal-category {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.category-title {
+  font-size: 1.3rem;
+  margin-bottom: 15px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #4ecdc4;
+}
+
+.meal-items {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.meal-card {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 12px;
+  padding: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.meal-card:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: translateY(-2px);
+}
+
+.meal-image {
+  font-size: 1.5rem;
+  width: 40px;
+  text-align: center;
+}
+
+.meal-info h4 {
+  margin: 0 0 5px 0;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.meal-nutrition {
+  display: flex;
+  gap: 8px;
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.btn-add-meal {
+  background: linear-gradient(45deg, #4ecdc4, #44a08d);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.btn-add-meal:hover {
+  transform: scale(1.1);
+  background: linear-gradient(45deg, #44a08d, #4ecdc4);
+}
+
+/* Selected Meals */
+.selected-meals {
+  margin-top: 15px;
+  max-height: 150px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.selected-meal {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(78, 205, 196, 0.2);
+  padding: 8px 12px;
+  border-radius: 8px;
+  margin-bottom: 5px;
+  border: 1px solid rgba(78, 205, 196, 0.3);
+}
+
+.btn-remove {
+  background: #ff6b6b;
+  border: none;
+  color: white;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  transition: all 0.3s ease;
+}
+
+.btn-remove:hover {
+  background: #e55a5a;
+  transform: scale(1.1);
+}
+
+/* Nutrition Summary */
+.nutrition-summary {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  padding: 25px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  height: fit-content;
+}
+
+.nutrition-summary h3 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #4ecdc4;
+}
+
+.nutrition-stats {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+  margin-bottom: 25px;
+}
+
+.nutrition-stat {
+  text-align: center;
+}
+
+.stat-circle {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 8px;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.calories {
+  background: linear-gradient(45deg, #ff6b6b, #ff8e8e);
+}
+
+.protein {
+  background: linear-gradient(45deg, #4ecdc4, #7dd3c0);
+}
+
+.carbs {
+  background: linear-gradient(45deg, #ffe66d, #ffeb99);
+}
+
+.fat {
+  background: linear-gradient(45deg, #a8e6cf, #c7e9d1);
+}
+
+.btn-save-plan {
+  background: linear-gradient(45deg, #667eea, #764ba2);
+  border: none;
+  color: white;
+  padding: 12px 25px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  width: 100%;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-save-plan:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .planner-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .meal-categories {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .diet-hero {
+    padding: 40px 20px 20px;
+  }
+
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .food-animation {
+    gap: 20px;
+  }
+
+  .plate,
+  .glass,
+  .bowl {
+    width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+  }
+
+  .preference-buttons {
+    gap: 15px;
+  }
+
+  .preference-btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .meal-planner {
+    padding: 20px 15px;
+  }
+
+  .meal-category {
+    padding: 15px;
+  }
+
+  .meal-items {
+    grid-template-columns: 1fr;
+    max-height: 250px;
+  }
+
+  .meal-card {
+    padding: 10px;
+  }
+
+  .nutrition-stats {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+  }
+
+  .stat-circle {
+    width: 50px;
+    height: 50px;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.8rem;
+  }
+
+  .preference-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .preference-btn {
+    width: 200px;
+  }
+
+  .meal-categories {
+    grid-template-columns: 1fr;
+  }
+
+  .meal-items {
+    grid-template-columns: 1fr;
+  }
+
+  .nutrition-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* Scrollbar Styling */
+.meal-items::-webkit-scrollbar,
+.selected-meals::-webkit-scrollbar {
+  width: 6px;
+}
+
+.meal-items::-webkit-scrollbar-track,
+.selected-meals::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.meal-items::-webkit-scrollbar-thumb,
+.selected-meals::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.meal-items::-webkit-scrollbar-thumb:hover,
+.selected-meals::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
