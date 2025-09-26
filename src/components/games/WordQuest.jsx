@@ -760,6 +760,7 @@ const WordQuest = ({ onGameStart }) => {
           style={{
             gridTemplateColumns: `repeat(${gridSize}, 1fr)`,
             gridTemplateRows: `repeat(${gridSize}, 1fr)`,
+            position: "relative",
           }}
           onMouseDown={handleMouseDown}
           onMouseMove={handleMouseMove}
@@ -781,28 +782,29 @@ const WordQuest = ({ onGameStart }) => {
               </div>
             );
           })}
+          <svg
+            style={{
+              position: "absolute",
+              top: 0,
+              left: 0,
+              width: "100%",
+              height: "100%",
+              pointerEvents: "none",
+              zIndex: 1,
+            }}
+          >
+            {lineStart && lineEnd && (
+              <line
+                x1={lineStart.x}
+                y1={lineStart.y}
+                x2={lineEnd.x}
+                y2={lineEnd.y}
+                stroke="red"
+                strokeWidth="2"
+              />
+            )}
+          </svg>
         </div>
-        <svg
-          style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-            pointerEvents: "none",
-          }}
-        >
-          {lineStart && lineEnd && (
-            <line
-              x1={lineStart.x}
-              y1={lineStart.y}
-              x2={lineEnd.x}
-              y2={lineEnd.y}
-              stroke="red"
-              strokeWidth="2"
-            />
-          )}
-        </svg>
         <div className="words-list">
           <h3>Words to find:</h3>
           <ul>

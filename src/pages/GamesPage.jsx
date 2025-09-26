@@ -5,7 +5,6 @@ import ZenGardenPuzzle from "../components/games/ZenGardenPuzzle";
 import ReactionRush from "../components/games/ReactionRushFixed";
 import WordQuest from "../components/games/WordQuest";
 import CardFlipChallenge from "../components/games/CardFlipChallenge";
-import ColorCatchDash from "../components/games/ColorCatchDash";
 import Navbar from "../components/Navbar";
 import "../components/games/BubbleBurstBliss.css";
 import "../components/games/MindMazeMatch.css";
@@ -13,7 +12,6 @@ import "../components/games/ZenGardenPuzzle.css";
 import "../components/games/ReactionRush.css";
 import "../components/games/WordQuest.css";
 import "../components/games/CardFlipChallenge.css";
-import "../components/games/ColorCatchDash.css";
 import "./GamesPage.css";
 
 const GamesPage = () => {
@@ -55,12 +53,6 @@ const GamesPage = () => {
       name: "Card Flip Challenge",
       description: "Concentration game with time limit",
       component: CardFlipChallenge,
-    },
-    {
-      id: "color-catch",
-      name: "Color Catch Dash",
-      description: "Catch falling objects of target color",
-      component: ColorCatchDash,
     },
   ];
 

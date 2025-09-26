@@ -14,29 +14,40 @@ def setup_and_run():
     # Apply migrations
     subprocess.run([sys.executable, "manage.py", "migrate"])
     
-    # Start the server in a separate process
-    server_process = subprocess.Popen([sys.executable, "manage.py", "runserver"])
+    # Start the Django server in a separate process
+    django_process = subprocess.Popen([sys.executable, "manage.py", "runserver"])
     
-    # Wait a moment for the server to start
-    print("Starting server...")
-    sleep(2)
+    # Wait for Django to start
+    print("Starting Django backend server...")
+    sleep(3)
     
-    # Open the browser
+    # Start the React frontend in a separate process
+    print("Starting React frontend...")
+    frontend_process = subprocess.Popen(["npm", "start"], cwd=os.path.dirname(os.path.abspath(__file__)))
+    
+    # Wait a bit more for frontend to start
+    sleep(5)
+    
+    # Open the browser to the frontend
     print("Opening application in browser...")
-    webbrowser.open("http://127.0.0.1:8000/")
+    webbrowser.open("http://localhost:3000")
     
     print("\nAlmostMe is now running!")
-    print("Press Ctrl+C to stop the server when you're done.")
+    print("Backend: http://localhost:8000")
+    print("Frontend: http://localhost:3000")
+    print("Press Ctrl+C in the terminal to stop both servers.")
     
     try:
-        # Keep the script running until interrupted
-        server_process.wait()
+        # Wait for either process to finish
+        django_process.wait()
+        frontend_process.terminate()
     except KeyboardInterrupt:
-        # Handle the Ctrl+C to gracefully shut down
-        print("\nShutting down server...")
-        server_process.terminate()
-        server_process.wait()
-        print("Server stopped. Goodbye!")
+        print("\nShutting down servers...")
+        django_process.terminate()
+        frontend_process.terminate()
+        django_process.wait()
+        frontend_process.wait()
+        print("Servers stopped. Goodbye!")
 
 if __name__ == "__main__":
     setup_and_run()
