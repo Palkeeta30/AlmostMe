@@ -129,3 +129,11 @@ build/
 # OS
 .DS_Store
 Thumbs.db
+
+# Debug and test files
+test_*.py
+test_*.js
+create_test_user.py
+
+# TODO notes
+TODO*
