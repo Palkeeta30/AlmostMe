@@ -1,4 +1,4 @@
-# AlmostMe - Wellness & Self-Care Platform
+# AlmostMe - a wellness web app
 
 A comprehensive React (Vite) frontend integrated with a Django backend, designed to help users improve their physical health, mental wellbeing, and emotional balance.
 
