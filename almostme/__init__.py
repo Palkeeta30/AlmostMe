@@ -1,0 +1,1 @@
+# AlmostMe project initialization

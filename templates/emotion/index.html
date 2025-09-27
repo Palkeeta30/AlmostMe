@@ -1,0 +1,169 @@
+{% extends 'base.html' %}
+
+{% block title %}Emotion Detection - AlmostMe{% endblock %}
+
+{% block content %}
+<!-- Emotion Hero Section -->
+<section class="hero">
+    <div class="container hero-content">
+        <h1>Emotion <span class="highlight">Detection</span></h1>
+        <p>Understand and manage your emotional state</p>
+    </div>
+    <div class="scroll-down">
+        <i class="fas fa-chevron-down"></i>
+    </div>
+</section>
+
+<!-- Emotion Analysis Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 animated-element">
+                <div class="emoji-container">
+                    <div class="emoji">😊</div>
+                    <div class="emoji">😢</div>
+                    <div class="emoji">😡</div>
+                    <div class="emoji">😴</div>
+                    <div class="emoji">🤔</div>
+                </div>
+                
+                <div class="waveform">
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                    <div class="wave"></div>
+                </div>
+                
+                <h2 class="section-title text-start">Emotional <span class="highlight">Analysis</span></h2>
+                <p>Our advanced AI analyzes your text inputs to understand your emotional state and provide personalized recommendations to improve your mood and maintain emotional balance.</p>
+            </div>
+            
+            <div class="col-lg-6 animated-element">
+                <div class="form-container">
+                    <h3 class="mb-4">Analyze Your Emotions</h3>
+                    
+                    <form id="emotion-form">
+                        <div class="mb-3">
+                            <label for="emotion-text" class="form-label">How are you feeling today? (Describe in a few sentences)</label>
+                            <textarea class="form-control" id="emotion-text" rows="5" placeholder="e.g., I had a great day at work today. My boss praised my presentation and I feel accomplished." required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary w-100">Analyze My Mood</button>
+                    </form>
+                    
+                    <div id="emotion-result" class="mt-4" style="display: none;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emotional Wellness Section -->
+<section class="section section-gradient-2">
+    <div class="container">
+        <h2 class="section-title">Emotional <span class="highlight">Wellness</span></h2>
+        <p class="section-subtitle">Tips for maintaining emotional balance</p>
+        
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-spa"></i>
+                    </div>
+                    <h3 class="card-title">Mindfulness</h3>
+                    <p>Practice mindfulness meditation to stay present and reduce stress and anxiety.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3 class="card-title">Journaling</h3>
+                    <p>Write down your thoughts and feelings to gain clarity and emotional release.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3 class="card-title">Connection</h3>
+                    <p>Maintain social connections and reach out to loved ones for support.</p>
+                </div>
+            </div>
+            
+            <div class="col-md-6 col-lg-3">
+                <div class="card animated-element">
+                    <div class="card-icon">
+                        <i class="fas fa-laugh"></i>
+                    </div>
+                    <h3 class="card-title">Positive Activities</h3>
+                    <p>Engage in activities that bring you joy and boost your mood regularly.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Emotion Tracking Section -->
+<section class="section section-gradient-1">
+    <div class="container">
+        <h2 class="section-title">Track Your <span class="highlight">Emotions</span></h2>
+        <p class="section-subtitle">Monitor your emotional journey over time</p>
+        
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card p-4 animated-element">
+                    <h3 class="mb-4 text-center">Benefits of Emotion Tracking</h3>
+                    
+                    <div class="row g-4">
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-chart-line text-primary me-3 mt-1" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Pattern Recognition</h5>
+                                    <p>Identify patterns in your emotional responses to different situations.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-lightbulb text-primary me-3 mt-1" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Self-Awareness</h5>
+                                    <p>Develop greater awareness of your emotional states and triggers.</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-6">
+                            <div class="d-flex align-items-start mb-3">
+                                <i class="fas fa-brain text-primary me-3 mt-1" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Emotional Intelligence</h5>
+                                    <p>Improve your ability to understand and manage emotions effectively.</p>
+                                </div>
+                            </div>
+                            
+                            <div class="d-flex align-items-start">
+                                <i class="fas fa-shield-alt text-primary me-3 mt-1" style="font-size: 1.5rem;"></i>
+                                <div>
+                                    <h5>Mental Health</h5>
+                                    <p>Support your mental health by addressing emotional challenges early.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="text-center mt-4">
+                        <button class="btn btn-primary">Start Tracking</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
