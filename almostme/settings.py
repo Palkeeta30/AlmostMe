@@ -10,7 +10,7 @@ SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-key')
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['*', '.railway.app', '.up.railway.app']
 
 # Trust local frontend dev servers for CSRF
 CSRF_TRUSTED_ORIGINS = [
@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = [
     # Allow all localhost origins for development
     'http://localhost:*',
     'http://127.0.0.1:*',
+    'https://optimistic-ambition.up.railway.app',
 ]
 
 # Allow CORS from local frontend dev servers
@@ -55,6 +56,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8080',
     'http://localhost:4200',
     'http://127.0.0.1:4200',
+    'https://optimistic-ambition.up.railway.app',
 ]
 
 # Application definition
@@ -191,3 +193,5 @@ EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'talkto.almostme@gmail.com'
 EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'fallback')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
