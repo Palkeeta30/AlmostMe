@@ -1,0 +1,9 @@
+[build]
+commands = [
+  "npm ci --cache .npm --prefer-offline",
+  "npm run build",
+  "python manage.py collectstatic --noinput --clear"
+]
+
+[deploy]
+startCommand = "gunicorn almostme.wsgi:application --bind 0.0.0.0:$PORT"

@@ -1,6 +1,6 @@
-from django.shortcuts import render
+from django.views.generic import TemplateView
+from django.conf import settings
+from django.views.static import serve
 
 def home(request):
-    template_path = 'base.html'
-    context = {}
-    return render(request, template_path, context)
+    return serve(request, path='/index.html', document_root=settings.STATIC_ROOT)
