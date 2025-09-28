@@ -148,14 +148,14 @@ class ApiClient {
 
   // Fitness tracking
   async logWorkout(workoutData) {
-    return this.request("/fitness/api/log-workout/", {
+    return this.request("/fitness/api/workouts/log_workout/", {
       method: "POST",
       body: JSON.stringify(workoutData),
     });
   }
 
   async getWorkoutHistory() {
-    return this.request("/fitness/api/history/", {
+    return this.request("/fitness/api/workouts/history/", {
       method: "GET",
     });
   }
