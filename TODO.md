@@ -1,12 +1,28 @@
-# Fix Railway Deployment Crash
+# Deployment Plan for Railway
 
-## Completed Tasks
-- [x] Rewrite requirements.txt in clean UTF-8 encoding to ensure pip can install dependencies including gunicorn.
-- [x] Update Procfile to include `:application` in gunicorn command for proper Django WSGI module loading.
-- [x] Add `pip install -r requirements.txt` to railway.toml build commands to explicitly install Python dependencies in mixed project setup.
+## Information Gathered
+- Project is a Django backend with React frontend.
+- railway.toml already configured with build commands (pip install, npm ci, npm run build, collectstatic) and start command (gunicorn).
+- settings.py has DEBUG=True, needs production settings.
+- Using SQLite database, which is fine for Railway.
+- Static files configured with WhiteNoise.
+- CORS and CSRF set for localhost, need to add Railway domain.
+- Environment variables needed: SECRET_KEY, EMAIL_HOST_PASSWORD.
 
-## Next Steps
-- [ ] Commit and push changes to GitHub repository.
-- [ ] Redeploy the application on Railway (via Railway dashboard or automatic trigger on push).
-- [ ] Monitor Railway logs to confirm successful deployment and gunicorn startup.
-- [ ] Test the application endpoints to ensure functionality.
+## Plan
+- [x] Update settings.py for production:
+  - [x] Set DEBUG=False
+  - ALLOWED_HOSTS already includes Railway domains
+  - Railway domain already in CSRF_TRUSTED_ORIGINS and CORS_ALLOWED_ORIGINS
+- [x] Add migration command to railway.toml build commands
+- Ensure environment variables are set in Railway dashboard
+- Test deployment
+
+## Dependent Files to Edit
+- almostme/settings.py
+- railway.toml
+
+## Followup Steps
+- Set environment variables in Railway: SECRET_KEY, EMAIL_HOST_PASSWORD
+- Deploy and monitor for errors
+- If crashes, check logs for issues like missing env vars or database errors

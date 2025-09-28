@@ -1,6 +1,7 @@
 [build]
 commands = [
   "pip install -r requirements.txt",
+  "python manage.py migrate",
   "npm ci --cache .npm --prefer-offline",
   "npm run build",
   "python manage.py collectstatic --noinput --clear"
