@@ -99,9 +99,9 @@ CORS_ALLOW_CREDENTIALS = True
 
 # Ensure cookies work during local development cross-origin requests
 CSRF_COOKIE_SAMESITE = None
-CSRF_COOKIE_SECURE = False
+CSRF_COOKIE_SECURE = not DEBUG
 SESSION_COOKIE_SAMESITE = None
-SESSION_COOKIE_SECURE = False
+SESSION_COOKIE_SECURE = not DEBUG
 
 # Session settings to prevent daily login issues
 SESSION_ENGINE = 'django.contrib.sessions.backends.db'  # Use database-backed sessions

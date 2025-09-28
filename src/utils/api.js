@@ -2,10 +2,7 @@
 /* eslint-disable no-unused-expressions */
 // API utility functions for Django backend integration
 
-const DEFAULT_API_BASE_URL = "http://localhost:8000";
-// Use relative path when proxy is configured in package.json
-const API_BASE_URL =
-  process.env.NODE_ENV === "development" ? "" : DEFAULT_API_BASE_URL;
+const API_BASE_URL = "";
 
 class ApiClient {
   constructor(baseURL) {
