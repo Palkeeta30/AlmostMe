@@ -36,10 +36,7 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:*',
     'http://127.0.0.1:*',
     'https://optimistic-ambition.up.railway.app',
-<<<<<<< HEAD
     'https://*.up.railway.app',
-=======
->>>>>>> c0f43f394f42fd07343418e6ae38b9fe5b0aea3f
 ]
 
 # Allow CORS from local frontend dev servers
@@ -61,10 +58,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://localhost:4200',
     'http://127.0.0.1:4200',
     'https://optimistic-ambition.up.railway.app',
-<<<<<<< HEAD
     'https://*.up.railway.app',
-=======
->>>>>>> c0f43f394f42fd07343418e6ae38b9fe5b0aea3f
 ]
 
 # Application definition
