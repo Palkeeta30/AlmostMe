@@ -1,10 +1,14 @@
 [build]
 commands = [
 <<<<<<< HEAD
+<<<<<<< HEAD
   "pip install -r requirements.txt",
   "python manage.py migrate",
 =======
 >>>>>>> 82e6390 (Update README title without prefix)
+=======
+  "pip install -r requirements.txt",
+>>>>>>> 698ef9c (Fix Railway deployment: clean requirements.txt encoding, update Procfile gunicorn command, add pip install to build)
   "npm ci --cache .npm --prefer-offline",
   "npm run build",
   "python manage.py collectstatic --noinput --clear"

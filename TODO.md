@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Deployment Plan for Railway
 
 ## Information Gathered
@@ -29,9 +30,16 @@
 - If crashes, check logs for issues like missing env vars or database errors
 =======
 # Deployment Fix TODO
+=======
+# Fix Railway Deployment Crash
+>>>>>>> 698ef9c (Fix Railway deployment: clean requirements.txt encoding, update Procfile gunicorn command, add pip install to build)
 
-## Steps to Complete:
+## Completed Tasks
+- [x] Rewrite requirements.txt in clean UTF-8 encoding to ensure pip can install dependencies including gunicorn.
+- [x] Update Procfile to include `:application` in gunicorn command for proper Django WSGI module loading.
+- [x] Add `pip install -r requirements.txt` to railway.toml build commands to explicitly install Python dependencies in mixed project setup.
 
+<<<<<<< HEAD
 1. **Create .python-version**: Set Python version to 3.12.3 for Django compatibility.
    - Tool: create_file
    - Status: Pending
@@ -76,3 +84,10 @@
 
 Note: SQLite on Railway may cause data loss on restarts due to ephemeral FS—consider Postgres later for persistence.
 >>>>>>> 82e6390 (Update README title without prefix)
+=======
+## Next Steps
+- [ ] Commit and push changes to GitHub repository.
+- [ ] Redeploy the application on Railway (via Railway dashboard or automatic trigger on push).
+- [ ] Monitor Railway logs to confirm successful deployment and gunicorn startup.
+- [ ] Test the application endpoints to ensure functionality.
+>>>>>>> 698ef9c (Fix Railway deployment: clean requirements.txt encoding, update Procfile gunicorn command, add pip install to build)
