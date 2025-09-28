@@ -71,7 +71,11 @@ const FitnessPage = () => {
   const loadWorkouts = useCallback(async () => {
     try {
       const response = await fitnessAPI.getHistory();
-      setWorkouts(response.data || []);
+      if (response.status >= 200 && response.status < 300) {
+        setWorkouts(Array.isArray(response.data) ? response.data : []);
+      } else {
+        setWorkouts([]);
+      }
     } catch (error) {
       console.error("Failed to load workouts:", error);
       setWorkouts([]);
@@ -81,7 +85,7 @@ const FitnessPage = () => {
   const loadPlans = useCallback(async () => {
     try {
       const res = await fitnessAPI.getWorkoutPlans();
-      if (res.status === 200 && Array.isArray(res.data)) {
+      if (res.status >= 200 && res.status < 300 && Array.isArray(res.data)) {
         setWorkoutPlans(res.data);
       } else {
         setWorkoutPlans([]);
@@ -94,7 +98,7 @@ const FitnessPage = () => {
   const loadUserProfile = useCallback(async () => {
     try {
       const response = await fitnessAPI.getUserProfile();
-      if (response.status === 200 && response.data) {
+      if (response.status >= 200 && response.status < 300 && response.data) {
         const profile = {
           body_weight: response.data.body_weight ?? "",
           height: response.data.height ?? "",
@@ -120,9 +124,46 @@ const FitnessPage = () => {
           is_pregnant: false,
         });
         setWorkoutPlans([]);
+      } else {
+        setUserProfile({
+          body_weight: "",
+          height: "",
+          age: "",
+          goal: "maintenance",
+          injury: "",
+          is_pregnant: false,
+        });
+        setProfileDraft({
+          body_weight: "",
+          height: "",
+          age: "",
+          goal: "maintenance",
+          injury: "",
+          is_pregnant: false,
+        });
+        setUserProfileId(null);
+        setWorkoutPlans([]);
       }
     } catch (error) {
       console.error("Failed to load user profile:", error);
+      setUserProfile({
+        body_weight: "",
+        height: "",
+        age: "",
+        goal: "maintenance",
+        injury: "",
+        is_pregnant: false,
+      });
+      setProfileDraft({
+        body_weight: "",
+        height: "",
+        age: "",
+        goal: "maintenance",
+        injury: "",
+        is_pregnant: false,
+      });
+      setUserProfileId(null);
+      setWorkoutPlans([]);
     }
   }, [loadPlans]);
 
@@ -225,7 +266,7 @@ const FitnessPage = () => {
       dataToSubmit.is_pregnant = Boolean(dataToSubmit.is_pregnant);
 
       const response = await fitnessAPI.updateUserProfile(dataToSubmit);
-      if (response.status === 200 || response.status === 201) {
+      if (response.status >= 200 && response.status < 300) {
         const saved = response.data || dataToSubmit;
         if (response.data && response.data.id) {
           setUserProfileId(response.data.id);
@@ -289,16 +330,20 @@ const FitnessPage = () => {
         date: new Date().toISOString().split("T")[0],
       };
 
-      await fitnessAPI.logWorkout(workoutData);
-      setFormData({
-        workout_type: "cardio",
-        duration: "",
-        intensity: "moderate",
-        calories_burned: "",
-        notes: "",
-      });
-      setShowForm(false);
-      loadWorkouts();
+      const response = await fitnessAPI.logWorkout(workoutData);
+      if (response.status >= 200 && response.status < 300) {
+        setFormData({
+          workout_type: "cardio",
+          duration: "",
+          intensity: "moderate",
+          calories_burned: "",
+          notes: "",
+        });
+        setShowForm(false);
+        loadWorkouts();
+      } else {
+        alert("Failed to save workout. Please try again.");
+      }
     } catch (error) {
       console.error("Failed to save workout:", error);
       alert("Failed to save workout. Please try again.");
@@ -312,8 +357,12 @@ const FitnessPage = () => {
       return;
 
     try {
-      await fitnessAPI.deleteWorkout(workoutId);
-      loadWorkouts();
+      const response = await fitnessAPI.deleteWorkout(workoutId);
+      if (response.status >= 200 && response.status < 300) {
+        loadWorkouts();
+      } else {
+        alert("Failed to delete workout. Please try again.");
+      }
     } catch (error) {
       console.error("Failed to delete workout:", error);
       alert("Failed to delete workout. Please try again.");
