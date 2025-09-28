@@ -5,12 +5,12 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-almostme-secret-key-for-development-only'
+SECRET_KEY = os.environ.get('SECRET_KEY', 'fallback-key')
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'testserver']
+ALLOWED_HOSTS = ['*', '.railway.app', '.up.railway.app']
 
 # Trust local frontend dev servers for CSRF
 CSRF_TRUSTED_ORIGINS = [
@@ -35,6 +35,7 @@ CSRF_TRUSTED_ORIGINS = [
     # Allow all localhost origins for development
     'http://localhost:*',
     'http://127.0.0.1:*',
+    'https://optimistic-ambition.up.railway.app',
 ]
 
 # Allow CORS from local frontend dev servers
@@ -55,6 +56,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:8080',
     'http://localhost:4200',
     'http://127.0.0.1:4200',
+    'https://optimistic-ambition.up.railway.app',
 ]
 
 # Application definition
@@ -80,6 +82,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'corsheaders.middleware.CorsMiddleware',
     'django.middleware.security.SecurityMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -172,6 +175,7 @@ USE_TZ = True
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'static'),
+    os.path.join(BASE_DIR, 'build', 'static'),
 ]
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
@@ -188,4 +192,6 @@ EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER = 'talkto.almostme@gmail.com'
-EMAIL_HOST_PASSWORD = 'your_gmail_app_password_here'  # Replace with actual App Password
+EMAIL_HOST_PASSWORD = os.environ.get('EMAIL_HOST_PASSWORD', 'fallback')
+
+SECURE_PROXY_SSL_HEADER = ('HTTP_X_FORWARDED_PROTO', 'https')
