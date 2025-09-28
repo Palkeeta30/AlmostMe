@@ -83,6 +83,11 @@ class WorkoutViewSet(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
 
+    def get_permissions(self):
+        if self.action == 'history':
+            return []
+        return super().get_permissions()
+
     @action(detail=False, methods=['get'])
     def history(self, request):
         """Get workout history for the authenticated user"""
