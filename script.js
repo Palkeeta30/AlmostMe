@@ -1,4 +1,6 @@
 // ===== PARTICLES BACKGROUND =====
+/* global particlesJS */
+
 document.addEventListener("DOMContentLoaded", () => {
   // Initialize particles.js
   // Check if particlesJS is already defined, if not, define it as an empty function
@@ -189,7 +191,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // ===== PROGRESS CIRCLE ANIMATION =====
   const progressCircle = document.querySelector(".progress-bar")
-  const progressText = document.querySelector(".progress-text")
 
   function animateProgress() {
     const value = 75 // Percentage value

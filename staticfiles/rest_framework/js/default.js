@@ -1,3 +1,5 @@
+/* global $, prettyPrint, getCookie */
+
 $(document).ready(function() {
   // JSON highlighting.
   prettyPrint();

@@ -9,11 +9,16 @@ import json
 def api_csrf(request):
     return JsonResponse({'success': True, 'message': 'CSRF cookie set'})
 
+import logging
+
+logger = logging.getLogger(__name__)
+
 @csrf_exempt
 def api_login(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
+            logger.info(f"Login request data: {data}")
             username = data.get("username")
             password = data.get("password")
             remember_me = data.get("remember_me", False)
@@ -29,10 +34,13 @@ def api_login(request):
                     # 24 hours for regular login
                     request.session.set_expiry(24 * 60 * 60)  # 24 hours in seconds
 
+                logger.info(f"User {username} logged in successfully")
                 return JsonResponse({"success": True, "message": "Logged in successfully"})
             else:
+                logger.warning(f"Invalid login credentials for user {username}")
                 return JsonResponse({"success": False, "message": "Invalid credentials"}, status=401)
         except Exception as e:
+            logger.error(f"Login error: {str(e)}", exc_info=True)
             return JsonResponse({"success": False, "message": str(e)}, status=400)
     return JsonResponse({"success": False, "message": "Invalid method"}, status=405)
 
@@ -41,22 +49,26 @@ def api_signup(request):
     if request.method == "POST":
         try:
             data = json.loads(request.body)
+            logger.info(f"Signup request data: {data}")
             username = data.get("username")
             email = data.get("email")
             password = data.get("password")
             if not username or not email or not password:
+                logger.warning("Signup failed: Missing username, email, or password")
                 return JsonResponse({"success": False, "message": "Username, email, and password are required"}, status=400)
             if User.objects.filter(username=username).exists():
+                logger.warning(f"Signup failed: Username {username} already exists")
                 return JsonResponse({"success": False, "message": "Username already exists"}, status=400)
             if User.objects.filter(email=email).exists():
+                logger.warning(f"Signup failed: Email {email} already exists")
                 return JsonResponse({"success": False, "message": "Email already exists"}, status=400)
             user = User.objects.create_user(username=username, email=email, password=password)
             user.save()
             login(request, user)
+            logger.info(f"User {username} created and logged in successfully")
             return JsonResponse({"success": True, "message": "User created and logged in"})
         except Exception as e:
-            import traceback
-            traceback.print_exc()
+            logger.error(f"Signup error: {str(e)}", exc_info=True)
             return JsonResponse({"success": False, "message": str(e)}, status=400)
     return JsonResponse({"success": False, "message": "Invalid method"}, status=405)
 
