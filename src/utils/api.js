@@ -1,9 +1,4 @@
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-unused-expressions */
-// API utility functions for Django backend integration
-
 const API_BASE_URL = "";
-
 class ApiClient {
   constructor(baseURL) {
     this.baseURL = baseURL;
@@ -50,6 +45,8 @@ class ApiClient {
   async request(endpoint, options = {}) {
     const url = `${this.baseURL}${endpoint}`;
 
+    console.log("API Request:", url, options);
+
     const config = {
       headers: {
         "Content-Type": "application/json",
@@ -84,6 +81,8 @@ class ApiClient {
         }
       }
 
+      console.log("API Response:", response.status, data);
+
       // Fix: For login and signup, return the full response including status and message
       if (
         endpoint.includes("/auth-api/login/") ||
@@ -103,6 +102,7 @@ class ApiClient {
         message: data?.message,
       };
     } catch (error) {
+      console.error("API request failed:", error);
       return {
         data: null,
         status: 0,

@@ -4,6 +4,7 @@ commands = [
   "python manage.py migrate",
   "npm ci --cache .npm --prefer-offline",
   "npm run build",
+  "cp -r build/* staticfiles/",
   "python manage.py collectstatic --noinput --clear"
 ]
 
