@@ -14,7 +14,7 @@ urlpatterns = [
     path('emotion/', include('emotion.urls')),
     path('contact/', include('contact.urls')),
     path('auth-api/', include('auth_api.urls')),
-    re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$', serve, {'path': '/build/index.html', 'document_root': settings.STATIC_ROOT}),
+re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$', serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}),
 ]
 
 if settings.DEBUG:
