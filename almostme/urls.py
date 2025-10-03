@@ -12,7 +12,13 @@ urlpatterns = [
     path('emotion/', include('emotion.urls')),
     path('contact/', include('contact.urls')),
     path('auth-api/', include('auth_api.urls')),
-re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$', serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}),
+
+    # Serve the built React SPA index from staticfiles at the root
+    path('', serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}),
+
+    # Fallback: any non-API, non-Django route should return the SPA index.html
+    re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$',
+            serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}),
 ]
 
 if settings.DEBUG:
