@@ -94,6 +94,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
+# Explicitly add static files serving for production
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
 # CORS_ALLOW_ALL_ORIGINS = True  # replaced by CORS_ALLOWED_ORIGINS above
 CORS_ALLOW_CREDENTIALS = True
 
