@@ -1,28 +1,17 @@
-# Task: Fix Signup Issue and Deployment Blank Page
+# TODO: Fix Railway Deployment Issues
 
-## Current Work
-- Resolved local "Failed to fetch" by serving React via Django staticfiles (build, copy to staticfiles/build, collectstatic).
-- Partial browser testing: Page loads, fields interactive.
-- Deployment issue: Blank page on Railway due to missing build/index.html in staticfiles (collectstatic skips non-static dirs).
-- Plan: Update railway.toml to copy build/* to staticfiles during build, commit/push for auto-deploy.
+## Completed
+- [x] Add psycopg2-binary and dj-database-url to requirements.txt
+- [x] Update settings.py to use DATABASE_URL environment variable for database configuration
 
-## Key Technical Concepts
-- Django static serving for SPA: urls.py fallback to build/index.html.
-- Railway CI/CD: TOML defines build commands (npm build + collectstatic); add cp for HTML.
-- Git deployment: Commit/push triggers rebuild.
+## Pending Tasks
+- [ ] Commit and push the changes to GitHub
+- [ ] Redeploy the loving-wholeness instance on Railway to apply database configuration fixes
+- [ ] Add EMAIL_HOST_PASSWORD environment variable to the optimistic-ambition instance
+- [ ] Redeploy the optimistic-ambition instance on Railway
+- [ ] Test both deployments to ensure they work without 500 errors
 
-## Relevant Files and Code
-- railway.toml: Add "cp -r build/* staticfiles/" after npm run build.
-- TODO.md: Track steps.
-
-## Problem Solving
-- Local works; prod fails on missing SPA entry point.
-- Solution: Explicit copy in build script.
-
-## Pending Tasks and Next Steps
-- [x] Edit railway.toml to include copy command.
-- [x] Update TODO.md with progress.
-- [x] Run git add/commit/push to deploy.
-- [ ] Verify production signup at https://almostme-production.up.railway.app/signup (load page, submit form, check user creation/login).
-- [ ] Test error cases (duplicates).
-- [ ] If success, complete task.
+## Notes
+- The 500 error on loving-wholeness was likely due to using SQLite instead of PostgreSQL on Railway.
+- Both instances need EMAIL_HOST_PASSWORD for email functionality.
+- Keep both instances: loving-wholeness as production, optimistic-ambition as staging.
