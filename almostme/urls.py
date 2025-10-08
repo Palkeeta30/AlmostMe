@@ -3,6 +3,7 @@ from django.urls import path, include, re_path
 from django.conf import settings
 from django.conf.urls.static import static
 from django.views.static import serve
+from django.views.generic import TemplateView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -19,6 +20,11 @@ urlpatterns = [
     # Fallback: any non-API, non-Django route should return the SPA index.html
     re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$',
             serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}, name='index-fallback'),
+    path('', TemplateView.as_view(template_name='build/index.html'), name='index'),
+
+    # Fallback: any non-API, non-Django route should return the SPA index.html
+    re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$',
+            TemplateView.as_view(template_name='build/index.html'), name='index-fallback'),
 ]
 
 if settings.DEBUG:
