@@ -15,6 +15,11 @@ urlpatterns = [
     path('auth-api/', include('auth_api.urls')),
 
     # Serve the built React SPA index from staticfiles at the root
+    path('', serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}, name='index'),
+
+    # Fallback: any non-API, non-Django route should return the SPA index.html
+    re_path(r'^(?!admin|auth-api|games|diet|fitness|emotion|contact).*$',
+            serve, {'path': 'build/index.html', 'document_root': settings.STATIC_ROOT}, name='index-fallback'),
     path('', TemplateView.as_view(template_name='build/index.html'), name='index'),
 
     # Fallback: any non-API, non-Django route should return the SPA index.html
